@@ -1,4 +1,4 @@
-import { RecipeDatabase } from '../../backend/recipes/recipe-database';
+import { RecipeDatabase } from "../../src/recipes/recipe-database";
 export default function handler(req: any, res: any) {
   const recipeDatabase = new RecipeDatabase();
   const recipes = recipeDatabase.find();

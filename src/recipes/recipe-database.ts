@@ -1,4 +1,4 @@
-import recipes from '../utils/recipes';
+import recipes from "../utils/recipes";
 export class RecipeDatabase {
   private recipes = recipes;
   find(query?: any) {
