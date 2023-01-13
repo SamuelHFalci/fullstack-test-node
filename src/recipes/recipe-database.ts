@@ -2,16 +2,18 @@ import recipes from "../utils/recipes";
 export class RecipeDatabase {
   private recipes = recipes;
   find(query?: any) {
+    let output;
     if (!query) return this.recipes;
     else {
       if (query.skip && query.take) {
-        this.recipes = this.recipes.slice(query.skip, query.take);
+        output = this.recipes.slice(query.skip, query.take + query.skip);
       } else {
         if (query.skip) {
-          this.recipes = this.recipes.slice(query.skip);
-        }
-        if (query.take) {
-          this.recipes = this.recipes.slice(0, query.take);
+          output = this.recipes.slice(query.skip);
+        } else if (query.take) {
+          output = this.recipes.slice(0, query.take);
+        } else {
+          output = this.recipes;
         }
       }
     }
